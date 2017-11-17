@@ -24,14 +24,45 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
         unique: true,
         validate: {
             isEmail: true
-        }
-    }
-});
+            }
+         }
+      });
   ```
   * Specifying attribute defaultValues
+  http://docs.sequelizejs.com/variable/index.html
   * Specifying model options
+  http://docs.sequelizejs.com/manual/installation/getting-started.html#application-wide-model-options
+
    * Getters & Setters (aka virtuals)
-   * Hooks, e.g. beforeValidate
+   * Getters/Setters
+   http://docs.sequelizejs.com/manual/tutorial/models-definition.html#getters-setters
+   * Virtuals
+  http://docs.sequelizejs.com/variable/index.html#static-variable-DataTypes
+
+```javascript
+    route: {
+        type: Sequelize.VIRTUAL,
+        get () {
+            return '/wiki/' + this.getDataValue('urlTitle')
+        }
+    },
+    renderedContent: {
+        type: Sequelize.VIRTUAL,
+        get () {
+            return marked(this.getDataValue('content'))
+        }
+    }
+})
+```
+  * Hooks, e.g. beforeValidate
+   http://docs.sequelizejs.com/manual/tutorial/hooks.html#hooks
+   ```javascript
+   Page.beforeValidate(function (page) {
+  if (page.title) {
+    page.urlTitle = page.title.replace(/\s+/g, '_').replace(/\W/g, '');
+  }
+})
+   ```
    * Class methods
    * Instance methods
    * *this* value in custom methods
@@ -48,7 +79,7 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
 
 ## Routes
 
-* app.use vs app.all vs app.get vs app.post vs app.put vs app.delete
+* app.use vs app.all vs app.get vs app.post vs app.put vs app. delete
 * How to interact with data from the request
  * req.param vs req.query vs req.body (URI match vs ? that Express parses vs body-parser, respectively)
  * Using a model within a route to query, creations, updates or deletions
