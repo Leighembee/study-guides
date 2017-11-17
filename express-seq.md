@@ -34,9 +34,9 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
   http://docs.sequelizejs.com/manual/installation/getting-started.html#application-wide-model-options
 
    * Getters & Setters (aka virtuals)
-   * Getters/Setters
+    * _Getters/Setters_
    http://docs.sequelizejs.com/manual/tutorial/models-definition.html#getters-setters
-   * Virtuals
+    * _Virtuals_
   http://docs.sequelizejs.com/variable/index.html#static-variable-DataTypes
 
 ```javascript
@@ -54,7 +54,7 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
     }
 })
 ```
-  * Hooks, e.g. beforeValidate
+   * Hooks, e.g. beforeValidate
    http://docs.sequelizejs.com/manual/tutorial/hooks.html#hooks
    ```javascript
    Page.beforeValidate(function (page) {
@@ -65,15 +65,50 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
    ```
    * Class methods
    * Instance methods
+
+_This is an instance method..._
+```javascript
+const thing = new Thing('fred');
+thing.jump();
+```
+_This is a class method..._
+```javascript
+const thing = new Thing('george');
+Thing.findByName('george');
+```
+_This is how we define an instance method..._
+```javascript
+function Thing (name) {
+  this.name = name;
+}
+Thing.prototype.jump = function () {
+  this.status = 'happy';
+};
+```
    * *this* value in custom methods
      * getters: the instance
      * hooks: the model (instance is 1st arg of the hook func)
      * instance methods: instance
      * Class methods: class
  * Associating models, e.g. hasOne, belongsTo, etc
+ http://docs.sequelizejs.com/manual/tutorial/associations.html
   * Which model has the foreignKey
+  http://docs.sequelizejs.com/manual/advanced/legacy.html#foreign-keys
   * Which Sequelize model is given new methods
  * Synchronizing models with db.sync() -- what does the option force: true do?
+ ```javascript
+ User.sync()
+    .then(function () {
+        return Page.sync();
+    })
+    .then(function () {
+        app.listen(3001, function () {
+            console.log('Server is listening on port 3001!');
+        });
+    });
+
+ ```
+ *Force true clears the database*
 
 
 
