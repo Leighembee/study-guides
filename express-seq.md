@@ -1,6 +1,6 @@
-#Express/Sequelize Checkpoint-Study Guide
+# Express/Sequelize Checkpoint-Study Guide
 
-##Models
+## Models
 
 * Creating a db instance with *new Sequelize*
 * Creating models with db.define(modelname, fields, options)
