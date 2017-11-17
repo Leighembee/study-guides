@@ -65,17 +65,17 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
    * Class methods
    * Instance methods
 
-### _This is an instance method..._
+ *_This is an instance method..._*
 ```javascript
 const thing = new Thing('fred');
 thing.jump();
 ```
-### _This is a class method..._
+*_This is a class method..._*
 ```javascript
 const thing = new Thing('george');
 Thing.findByName('george');
 ```
-### _This is how we define an instance method..._
+*_This is how we define an instance method..._*
 ```javascript
 function Thing (name) {
   this.name = name;
@@ -95,7 +95,7 @@ Thing.prototype.jump = function () {
   http://docs.sequelizejs.com/manual/advanced/legacy.html#foreign-keys
   * Which Sequelize model is given new methods
  * Synchronizing models with db.sync() -- what does the option force: true do?
-     *Force true clears the database*
+       * *Force true clears the database*
  ```javascript
  User.sync()
     .then(function () {
