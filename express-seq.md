@@ -33,10 +33,10 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
   * Specifying model options
   http://docs.sequelizejs.com/manual/installation/getting-started.html#application-wide-model-options
 
-   * Getters & Setters (aka virtuals)
-     _Getters/Setters_
+   * Getters & Setters (aka virtuals) \n
+       * _Getters/Setters_
    http://docs.sequelizejs.com/manual/tutorial/models-definition.html#getters-setters
-     _Virtuals_
+       *  _Virtuals_
   http://docs.sequelizejs.com/variable/index.html#static-variable-DataTypes
 
 ```javascript
