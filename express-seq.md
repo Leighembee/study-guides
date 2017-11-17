@@ -14,4 +14,11 @@
    * Class methods
    * Instance methods
    * *this* value in custom methods
-
+     * getters: the instance
+     * hooks: the model (instance is 1st arg of the hook func)
+     * instance methods: instance
+     * Class methods: class
+ * Associating models, e.g. hasOne, belongsTo, etc
+  * Which model has the foreignKey
+  * Which Sequelize model is given new methods
+ * Synchronizing models with db.sync() -- what does the option force: true do?
