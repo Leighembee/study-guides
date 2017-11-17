@@ -3,10 +3,31 @@
 ## Models
 
 * Creating a db instance with *new Sequelize*
+```javascript
+var Sequelize = require('sequelize');
+var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false });
+```
+
 * Creating models with db.define(modelname, fields, options)
   * Specifying schema fields(attributes)
   * Specifying attribute types, e.g. Sequelize.STRING
   * Specifying attribute validations, e.g. allowNull
+  ```javascript
+  var User = db.define('user', {
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+            isEmail: true
+        }
+    }
+});
+  ```
   * Specifying attribute defaultValues
   * Specifying model options
    * Getters & Setters (aka virtuals)
