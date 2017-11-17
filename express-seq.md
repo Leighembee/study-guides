@@ -79,7 +79,7 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
 
 ## Routes
 
-* app.use vs app.all vs app.get vs app.post vs app.put vs app. delete
+* app.use vs app.all vs app.get vs app.post vs app.put vs app.delete
 * How to interact with data from the request
  * req.param vs req.query vs req.body (URI match vs ? that Express parses vs body-parser, respectively)
  * Using a model within a route to query, creations, updates or deletions
