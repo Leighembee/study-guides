@@ -33,12 +33,11 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
   * Specifying model options
   http://docs.sequelizejs.com/manual/installation/getting-started.html#application-wide-model-options
 
-   * Getters & Setters (aka virtuals) \n
+   * Getters & Setters (aka virtuals)
        * _Getters/Setters_
    http://docs.sequelizejs.com/manual/tutorial/models-definition.html#getters-setters
        *  _Virtuals_
   http://docs.sequelizejs.com/variable/index.html#static-variable-DataTypes
-
 ```javascript
     route: {
         type: Sequelize.VIRTUAL,
@@ -55,7 +54,7 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
 })
 ```
    * Hooks, e.g. beforeValidate
-   http://docs.sequelizejs.com/manual/tutorial/hooks.html#hooks
+  http://docs.sequelizejs.com/manual/tutorial/hooks.html#hooks
    ```javascript
    Page.beforeValidate(function (page) {
   if (page.title) {
@@ -66,17 +65,17 @@ var db = new Sequelize('postgres://localhost:5432/wikistack', { logging: false }
    * Class methods
    * Instance methods
 
-_This is an instance method..._
+### _This is an instance method..._
 ```javascript
 const thing = new Thing('fred');
 thing.jump();
 ```
-_This is a class method..._
+### _This is a class method..._
 ```javascript
 const thing = new Thing('george');
 Thing.findByName('george');
 ```
-_This is how we define an instance method..._
+### _This is how we define an instance method..._
 ```javascript
 function Thing (name) {
   this.name = name;
@@ -96,6 +95,7 @@ Thing.prototype.jump = function () {
   http://docs.sequelizejs.com/manual/advanced/legacy.html#foreign-keys
   * Which Sequelize model is given new methods
  * Synchronizing models with db.sync() -- what does the option force: true do?
+     *Force true clears the database*
  ```javascript
  User.sync()
     .then(function () {
@@ -106,9 +106,8 @@ Thing.prototype.jump = function () {
             console.log('Server is listening on port 3001!');
         });
     });
-
  ```
- *Force true clears the database*
+
 
 
 
